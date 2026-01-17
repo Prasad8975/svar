@@ -1,0 +1,2065 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVAR Quality Consultant MT. LLT.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Outfit', sans-serif;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+    .page.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-pattern {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 20% 30%, rgba(30, 58, 95, 0.05) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(45, 90, 135, 0.05) 0px, transparent 50%);
+    }
+    .service-detail-section {
+      animation: fadeIn 0.4s ease-out;
+    }
+    .service-nav-btn.active {
+      background-color: #1e293b;
+      color: white;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-slate-50">
+  <div id="app-wrapper" class="w-full"><!-- Navigation -->
+   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+  <img 
+    src="assets/logo.png"
+    alt="SVAR Quality Consultant Logo"
+    class="h-10 w-auto object-contain"
+  />
+  <span id="nav-company-name" class="font-display font-semibold text-slate-800 text-lg">
+    SVAR Quality Consultant
+  </span>
+</div>
+      <div class="hidden md:flex items-center gap-8"><button onclick="showPage('home')" class="nav-link text-slate-600 hover:text-slate-900 font-medium active" data-page="home">Home</button> <button onclick="showPage('profile')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="profile">Profile</button> <button onclick="showPage('services')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="services">Services</button> <button onclick="showPage('projects')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="projects">Projects</button> <button onclick="showPage('testimonials')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="testimonials">Testimonials</button> <button onclick="showPage('clients')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="clients">Clients</button> <button onclick="showPage('contact')" class="nav-link text-slate-600 hover:text-slate-900 font-medium" data-page="contact">Contact Us</button>
+      </div><button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-slate-200 pt-4">
+      <div class="flex flex-col gap-3"><button onclick="showPage('home'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Home</button> <button onclick="showPage('profile'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Profile</button> <button onclick="showPage('services'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Services</button> <button onclick="showPage('projects'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Projects</button> <button onclick="showPage('testimonials'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Testimonials</button> <button onclick="showPage('clients'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Clients</button> <button onclick="showPage('contact'); toggleMobileMenu()" class="text-left px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Contact Us</button>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Home Page -->
+<div id="page-home" class="page active pt-20">
+
+  <style>
+    .hero-bg-image {
+      position: relative;
+      background-image: url('assets/images/home1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-bg-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(248, 250, 252, 0.88);
+      z-index: 1;
+    }
+  </style>
+
+  <section class="hero-bg-image min-h-[600px] flex items-center">
+    <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- LEFT CONTENT -->
+        <div>
+          <div class="inline-flex items-center gap-2 bg-slate-800/5 px-4 py-2 rounded-full mb-6">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+            <span class="text-slate-600 text-sm font-medium">
+              NABL & ISO Compliant Testing
+            </span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+            SVAR Quality Consultant MT. LLP
+          </h1>
+
+          <p class="text-xl text-slate-600 mb-4 leading-relaxed">
+            Independent Quality and Testing Consultants for Highways & Infrastructure
+          </p>
+
+          <p class="text-lg text-slate-500 mb-8 leading-relaxed">
+            Delivering technically sound, unbiased, and code-compliant quality assurance
+            services for highways, roads, bridges, structures, and infrastructure projects
+            across Pan-India.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <button onclick="showPage('services')"
+              class="px-8 py-4 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 transition-colors shadow-lg shadow-slate-800/20">
+              Our Services
+            </button>
+
+            <button onclick="showPage('contact')"
+              class="px-8 py-4 bg-white text-slate-800 rounded-xl font-medium hover:bg-slate-50 transition-colors border border-slate-200">
+              Get in Touch
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT STATS CARD -->
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-slate-800/10 to-transparent rounded-3xl transform rotate-3"></div>
+
+          <div class="relative bg-white rounded-3xl p-8 shadow-xl border border-slate-200">
+            <div class="grid grid-cols-2 gap-6">
+
+              <div class="text-center p-6 bg-slate-50 rounded-2xl">
+                <div class="text-3xl font-bold text-slate-800 mb-1">Pan-India</div>
+                <div class="text-slate-500 text-sm">Service Coverage</div>
+              </div>
+
+              <div class="text-center p-6 bg-slate-50 rounded-2xl">
+                <div class="text-3xl font-bold text-slate-800 mb-1">Since 2020</div>
+                <div class="text-slate-500 text-sm">Established</div>
+              </div>
+
+              <div class="text-center p-6 bg-slate-50 rounded-2xl">
+                <div class="text-3xl font-bold text-slate-800 mb-1">NABL</div>
+                <div class="text-slate-500 text-sm">Accredited Labs</div>
+              </div>
+
+              <div class="text-center p-6 bg-slate-50 rounded-2xl">
+                <div class="text-3xl font-bold text-slate-800 mb-1">ISO</div>
+                <div class="text-slate-500 text-sm">Certified Systems</div>
+              </div>
+
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-slate-200">
+              <div class="flex flex-wrap gap-2 justify-center">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                  ✔ NABL Compliant
+                </span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                  ✔ ISO Compliant
+                </span>
+                <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-medium">
+                  ✔ Code Based Reports
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<!-- Quick Services -->
+    <section class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+       <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose SVAR</h2>
+       <p class="text-slate-600 max-w-2xl mx-auto">Independent third-party verification with technical expertise and regulatory compliance</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+       <div class="card-hover bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl border border-slate-200">
+        <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center mb-6">
+         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">Independent Third-Party</h3>
+        <p class="text-slate-600">Unbiased quality verification ensuring accuracy, transparency, and technical reliability</p>
+       </div>
+       <div class="card-hover bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl border border-slate-200">
+        <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center mb-6">
+         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+         </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">Code-Based Approach</h3>
+        <p class="text-slate-600">Strict adherence to MoRTH, IRC, IS Codes, NABL &amp; ISO requirements</p>
+       </div>
+       <div class="card-hover bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl border border-slate-200">
+        <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center mb-6">
+         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h3.064" />
+         </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">Pan-India Capability</h3>
+        <p class="text-slate-600">Trusted by NHAI, MSRDC, PWD and private sector across India</p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Profile Page -->
+   <div id="page-profile" class="page pt-20">
+    <section class="py-20 hero-pattern">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+       <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-6">Company Profile</h1>
+       <p class="text-xl text-slate-600">Building quality excellence since 2020</p>
+      </div>
+     </div>
+    </section>
+    <section class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+       <div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">About Us</h2>
+        <p id="profile-about" class="text-slate-600 mb-6 leading-relaxed">SVAR Quality Consultant MT. LLT. is a leading quality management consultancy dedicated to helping organizations achieve and maintain international quality standards. With over 15 years of experience, we have successfully guided hundreds of companies through their quality certification journey.</p>
+        <div class="mb-6 p-4 bg-slate-50 rounded-xl">
+         <h3 class="font-semibold text-slate-900 mb-3">Our Locations</h3>
+         <div class="space-y-3 text-slate-600 text-sm">
+          <div><strong class="text-slate-800">Headquarters:</strong><br>
+            Plot No. 30, House No. 54, Mangalmurti Layout, Mahesh Nagar, Sai Nagar, Amravati-444605
+          </div>
+          <div><strong class="text-slate-800">Laboratory:</strong><br>
+            Plot No. 21, New House No. 961, Ward No. 67, Swastik Nagar, Badnera Road, Amravati-444605
+          </div>
+         </div>
+        </div>
+        <p class="text-slate-600 mb-8 leading-relaxed">Our team of certified professionals brings expertise across multiple industries, ensuring tailored solutions that address your specific quality management needs. We believe in building long-term partnerships with our clients, providing ongoing support and guidance.</p>
+        <div class="space-y-4">
+         <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+           <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-900">ISO 9001 Lead Auditor Certified</h4>
+          </div>
+         </div>
+         <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+           <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-900">ISO 14001 Environmental Expert</h4>
+          </div>
+         </div>
+         <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+           <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-900">ISO 45001 Safety Specialist</h4>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="space-y-8">
+        <div class="bg-slate-50 rounded-2xl p-8">
+         <h3 class="font-display text-2xl font-bold text-slate-900 mb-6">Our Mission</h3>
+         <p class="text-slate-600 leading-relaxed">To empower organizations with robust quality management systems that drive continuous improvement, enhance customer satisfaction, and ensure sustainable business growth.</p>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-8">
+         <h3 class="font-display text-2xl font-bold text-slate-900 mb-6">Our Vision</h3>
+         <p class="text-slate-600 leading-relaxed">To be the most trusted quality consultancy partner, recognized for excellence, integrity, and transformative impact on organizational performance worldwide.</p>
+        </div>
+        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 text-white">
+         <h3 class="font-display text-2xl font-bold mb-6 !text-white">Core Values</h3>
+         <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span> <span class="text-white">Integrity</span>
+          </div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span> <span class="text-white">Excellence</span>
+          </div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span> <span class="text-white">Innovation</span>
+          </div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span> <span class="text-white">Partnership</span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Services Page -->
+   <div id="page-services" class="page pt-20">
+    <section class="py-20 hero-pattern">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+       <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Services</h1>
+       <p class="text-xl text-slate-600">Independent Quality and Testing Consultants for Highways &amp; Infrastructures</p>
+      </div>
+     </div>
+    </section>
+    <section class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-6"><!-- Service Navigation -->
+      <div class="mb-12">
+       <div class="flex flex-wrap gap-3 justify-center"><button onclick="showServiceDetail('pmc')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">PMC Services</button> <button onclick="showServiceDetail('nabl')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">NABL Testing Lab</button> <button onclick="showServiceDetail('construction')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Construction Testing</button> <button onclick="showServiceDetail('soil')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Soil Investigation</button> <button onclick="showServiceDetail('design')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Design &amp; Estimation</button> <button onclick="showServiceDetail('highway')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Highway Testing</button> <button onclick="showServiceDetail('structural')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Structural Audit</button> <button onclick="showServiceDetail('safety')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Safety Audit</button> <button onclick="showServiceDetail('environmental')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Environmental Audit</button> <button onclick="showServiceDetail('roughness')" class="service-nav-btn px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium hover:bg-slate-800 hover:text-white transition-all">Roughness Survey</button>
+       </div>
+      </div><!-- Service Details Sections --> <!-- PMC Services -->
+      <div id="service-pmc" class="service-detail-section">
+
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/pmc.jpg"
+    alt="Project Management Consultancy Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-12 border border-blue-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Project Management Consultant (PMC)</h2>
+          <p class="text-slate-600 mt-1">Comprehensive project oversight and management services</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Services Offered</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Project Planning &amp; Scheduling (Primavera P6, MS Project)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Contract Management &amp; Administration</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Quality Assurance &amp; Quality Control</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Construction Supervision &amp; Monitoring</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Progress Monitoring &amp; Reporting</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2"></span> <span class="text-slate-700">Financial Management &amp; Cost Control</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Applicable Standards</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200">
+           <div class="space-y-3">
+            <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg"><span class="font-semibold text-blue-900">ISO 9001:2015</span> <span class="text-slate-600 text-sm">Quality Management</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-emerald-50 rounded-lg"><span class="font-semibold text-emerald-900">MoRTH</span> <span class="text-slate-600 text-sm">Highway Specifications</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-amber-50 rounded-lg"><span class="font-semibold text-amber-900">IRC Codes</span> <span class="text-slate-600 text-sm">Road Standards</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-purple-50 rounded-lg"><span class="font-semibold text-purple-900">CPWD</span> <span class="text-slate-600 text-sm">Public Works Standards</span>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 p-6 bg-blue-600 text-white rounded-2xl">
+         <h4 class="font-semibold text-lg mb-3">Key Deliverables</h4>
+         <div class="grid md:grid-cols-3 gap-4">
+          <div class="text-sm">
+           ✓ Monthly Progress Reports
+          </div>
+          <div class="text-sm">
+           ✓ Quality Audit Reports
+          </div>
+          <div class="text-sm">
+           ✓ Financial Status Reports
+          </div>
+          <div class="text-sm">
+           ✓ Site Inspection Reports
+          </div>
+          <div class="text-sm">
+           ✓ Risk Assessment Reports
+          </div>
+          <div class="text-sm">
+           ✓ Final Completion Reports
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- NABL Testing Lab -->
+      <div id="service-nabl" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/nabl.jpg"
+    alt="NABL Testing Lab Services "
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-emerald-50 to-white rounded-3xl p-8 md:p-12 border border-emerald-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">NABL Accredited Testing Laboratory</h2>
+          <p class="text-slate-600 mt-1">ISO/IEC 17025:2017 accredited laboratory services</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Testing Capabilities</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Concrete Testing (Cube, Cylinder, Core Testing)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Aggregate Testing (Physical &amp; Chemical Properties)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Bitumen &amp; Asphalt Testing (Marshall Stability, Ductility)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Soil Testing (CBR, Proctor, Atterberg Limits)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Steel Testing (Tensile, Bend, Chemical Analysis)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-emerald-600 rounded-full mt-2"></span> <span class="text-slate-700">Water Testing (Potability, Construction Use)</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Accreditations &amp; Standards</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200 space-y-4">
+           <div class="p-4 bg-emerald-50 rounded-lg">
+            <div class="font-semibold text-emerald-900 mb-2">
+             NABL Accreditation
+            </div>
+            <div class="text-sm text-slate-600">
+             ISO/IEC 17025:2017 - Testing Laboratory
+            </div>
+           </div>
+           <div class="p-4 bg-blue-50 rounded-lg">
+            <div class="font-semibold text-blue-900 mb-2">
+             IS Code Compliance
+            </div>
+            <div class="text-sm text-slate-600 space-y-1">
+             <div>
+              • IS 456, IS 516 - Concrete Testing
+             </div>
+             <div>
+              • IS 2386 - Aggregate Testing
+             </div>
+             <div>
+              • IS 73 - Bitumen Testing
+             </div>
+             <div>
+              • IS 2720 - Soil Testing
+             </div>
+             <div>
+              • IS 1786, IS 1608 - Steel Testing
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 grid md:grid-cols-3 gap-4">
+         <div class="p-6 bg-emerald-600 text-white rounded-2xl">
+          <div class="text-3xl font-bold mb-2">
+           ISO 17025
+          </div>
+          <div class="text-sm">
+           Accredited Lab
+          </div>
+         </div>
+         <div class="p-6 bg-emerald-600 text-white rounded-2xl">
+          <div class="text-3xl font-bold mb-2">
+           500+
+          </div>
+          <div class="text-sm">
+           Tests Parameters
+          </div>
+         </div>
+         <div class="p-6 bg-emerald-600 text-white rounded-2xl">
+          <div class="text-3xl font-bold mb-2">
+           24-48hrs
+          </div>
+          <div class="text-sm">
+           Report Turnaround
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Construction Testing -->
+      <div id="service-construction" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/cons.jpg"
+    alt="Construction Testing Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-amber-50 to-white rounded-3xl p-8 md:p-12 border border-amber-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-amber-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">All Construction Testing</h2>
+          <p class="text-slate-600 mt-1">Comprehensive material testing for construction projects</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Concrete Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• Compressive Strength (IS 516)</li>
+           <li>• Slump Test (IS 1199)</li>
+           <li>• Core Cutting (IS 516)</li>
+           <li>• Non-Destructive Testing (UPV)</li>
+           <li>• Rebound Hammer Test</li>
+           <li>• Chloride Content Test</li>
+          </ul>
+         </div>
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Steel Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• Tensile Strength (IS 1608)</li>
+           <li>• Bend Test (IS 1599)</li>
+           <li>• Rebend Test</li>
+           <li>• Chemical Composition (IS 1786)</li>
+           <li>• Weight per Meter</li>
+           <li>• Elongation Test</li>
+          </ul>
+         </div>
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Aggregate Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• Gradation (IS 2386 Part 1)</li>
+           <li>• Specific Gravity (IS 2386 Part 3)</li>
+           <li>• Water Absorption</li>
+           <li>• Impact Value (IS 2386 Part 4)</li>
+           <li>• Crushing Value</li>
+           <li>• Los Angeles Abrasion</li>
+          </ul>
+         </div>
+        </div>
+        <div class="mt-8 bg-amber-600 text-white rounded-2xl p-6">
+         <h4 class="font-semibold text-lg mb-4">Additional Testing Services</h4>
+         <div class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div>
+           ✓ Brick Testing (IS 1077, IS 3495)
+          </div>
+          <div>
+           ✓ Cement Testing (IS 4031, IS 269)
+          </div>
+          <div>
+           ✓ Tile Testing (IS 15622)
+          </div>
+          <div>
+           ✓ Paint Testing (IS 101, IS 5)
+          </div>
+          <div>
+           ✓ Sand Testing (IS 650)
+          </div>
+          <div>
+           ✓ Water Testing (IS 3025)
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Soil Investigation -->
+      <div id="service-soil" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/soil.jpg"
+    alt="Soil Investigation Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 md:p-12 border border-purple-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Soil Investigation &amp; Geotechnical Studies</h2>
+          <p class="text-slate-600 mt-1">Comprehensive subsurface investigation and analysis</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Field Investigation</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Bore Hole Drilling (Rotary, Auger, Percussion)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Standard Penetration Test (SPT) - IS 2131</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Compaction Test - IS 2720 (part 28)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Dynamic Cone Penetration Test (DCPT)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Plate Load Test - IS 1888</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2"></span> <span class="text-slate-700">Ground Water Table Monitoring</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Laboratory Testing</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200">
+           <div class="space-y-3 text-sm text-slate-700">
+            <div class="p-3 bg-purple-50 rounded-lg"><strong>Classification Tests (IS 2720)</strong>
+             <div class="mt-1">
+              Grain Size Analysis, Atterberg Limits, FSI, Specific Gravity
+             </div>
+            </div>
+            <div class="p-3 bg-blue-50 rounded-lg"><strong>Strength Tests</strong>
+             <div class="mt-1">
+              CBR (IS 2720 Part 16), UCS, Triaxial Test, Direct Shear
+             </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-lg"><strong>Compaction Tests</strong>
+             <div class="mt-1">
+              Standard Proctor, Modified Proctor (IS 2720 Part 7&amp;8)
+             </div>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-lg"><strong>Chemical Tests</strong>
+             <div class="mt-1">
+              pH, Chloride, Sulfate, Organic Content
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 p-6 bg-purple-600 text-white rounded-2xl">
+         <h4 class="font-semibold text-lg mb-3">Deliverables</h4>
+         <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+           ✓ Detailed Soil Investigation Report
+          </div>
+          <div>
+           ✓ Bore Log Charts
+          </div>
+          <div>
+           ✓ Laboratory Test Reports
+          </div>
+          <div>
+           ✓ Safe Bearing Capacity Recommendations
+          </div>
+          <div>
+           ✓ Foundation Design Parameters
+          </div>
+          <div>
+           ✓ Geotechnical Engineering Report as per IS 1892
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Design & Estimation -->
+      <div id="service-design" class="service-detail-section hidden">
+       <div class="bg-gradient-to-br from-rose-50 to-white rounded-3xl p-8 md:p-12 border border-rose-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-rose-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Detailed Design &amp; Estimation</h2>
+          <p class="text-slate-600 mt-1">Engineering design and cost estimation services</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Design Services</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">Highway &amp; Road Geometric Design (IRC 73, IRC 38)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">Pavement Design (IRC 37, IRC 115)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">Bridge Design (IRC 6, IRC 21, IRC 24)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">Drainage Design (IRC SP 13, IRC SP 50)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">Structural Design (IS 456, IS 800)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-rose-600 rounded-full mt-2"></span> <span class="text-slate-700">CAD Drawings (AutoCAD, Civil 3D)</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Estimation Services</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200 space-y-4">
+           <div class="p-4 bg-rose-50 rounded-lg">
+            <div class="font-semibold text-rose-900 mb-2">
+             Detailed Cost Estimation
+            </div>
+            <ul class="text-sm text-slate-600 space-y-1">
+             <li>• Quantity Surveying</li>
+             <li>• Bill of Quantities (BOQ)</li>
+             <li>• Rate Analysis</li>
+             <li>• Cost Comparison Studies</li>
+            </ul>
+           </div>
+           <div class="p-4 bg-blue-50 rounded-lg">
+            <div class="font-semibold text-blue-900 mb-2">
+             Technical Specifications
+            </div>
+            <ul class="text-sm text-slate-600 space-y-1">
+             <li>• MoRTH Specifications</li>
+             <li>• IRC Specifications</li>
+             <li>• CPWD Specifications</li>
+             <li>• Custom Project Specifications</li>
+            </ul>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 bg-rose-600 text-white rounded-2xl p-6">
+         <h4 class="font-semibold text-lg mb-4">Software &amp; Standards</h4>
+         <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div>
+           📐 AutoCAD Civil 3D
+          </div>
+          <div>
+           📐 STAAD Pro
+          </div>
+          <div>
+           📐 MS Project
+          </div>
+          <div>
+           📋 IRC Codes (6, 21, 37, 73)
+          </div>
+          <div>
+           📋 IS Codes (456, 800, 1893)
+          </div>
+          <div>
+           📋 MoRTH Specifications
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Highway Testing -->
+      <div id="service-highway" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/Highway.jpg"
+    alt="Highway Testing Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-cyan-50 to-white rounded-3xl p-8 md:p-12 border border-cyan-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-cyan-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Highway Testing Services</h2>
+          <p class="text-slate-600 mt-1">Specialized testing for highway and road construction</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Subgrade Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• CBR Testing (IS 2720 Part 16)</li>
+           <li>• Density Testing (Sand Replacement)</li>
+           <li>• Plate Bearing Test (IS 9214)</li>
+           <li>• Moisture Content</li>
+           <li>• Compaction Control</li>
+          </ul>
+         </div>
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Pavement Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• Marshall Stability (IS 2726)</li>
+           <li>• Core Cutting &amp; Testing</li>
+           <li>• Benkelman Beam Deflection</li>
+           <li>• Falling Weight Deflectometer</li>
+           <li>• Texture Depth</li>
+          </ul>
+         </div>
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Bitumen Testing</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+           <li>• Penetration Test (IS 1203)</li>
+           <li>• Ductility Test (IS 1208)</li>
+           <li>• Softening Point (IS 1205)</li>
+           <li>• Viscosity Test (IS 1206)</li>
+           <li>• Specific Gravity (IS 1202)</li>
+          </ul>
+         </div>
+        </div>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+         <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-semibold text-slate-900 mb-4">Field Testing Equipment</h3>
+          <div class="grid grid-cols-2 gap-3 text-sm text-slate-700">
+           <div>
+            ✓ Nuclear Density Gauge
+           </div>
+           <div>
+            ✓ Field CBR Equipment
+           </div>
+           <div>
+            ✓ Sand Replacement Kit
+           </div>
+           <div>
+            ✓ Core Cutting Machine
+           </div>
+           <div>
+            ✓ Benkelman Beam
+           </div>
+           <div>
+            ✓ FWD Equipment
+           </div>
+          </div>
+         </div>
+         <div class="bg-cyan-600 text-white rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Compliance Standards</h3>
+          <div class="space-y-2 text-sm">
+           <div>
+            📋 MoRTH Specifications (5th Revision)
+           </div>
+           <div>
+            📋 IRC 37 - Pavement Design
+           </div>
+           <div>
+            📋 IRC 115 - Guidelines for Structural Evaluation
+           </div>
+           <div>
+            📋 IS 2720 - Soil Testing
+           </div>
+           <div>
+            📋 IS 73 - Bitumen Testing
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Structural Audit -->
+      <div id="service-structural" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/Structural Audit.jpg"
+    alt="Structural Audit Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-indigo-50 to-white rounded-3xl p-8 md:p-12 border border-indigo-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Structural Audit Services</h2>
+          <p class="text-slate-600 mt-1">Comprehensive structural health assessment and evaluation</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Audit Components</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Visual Inspection &amp; Crack Mapping</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Non-Destructive Testing (NDT)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Concrete Core Testing &amp; Analysis</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Rebar Corrosion Assessment</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Load Carrying Capacity Evaluation</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-indigo-600 rounded-full mt-2"></span> <span class="text-slate-700">Structural Stability Analysis</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Testing Methods</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200 space-y-4">
+           <div class="p-3 bg-indigo-50 rounded-lg"><strong class="text-indigo-900">Rebound Hammer Test</strong>
+            <p class="text-sm text-slate-600 mt-1">IS 13311 Part 2 - Surface Hardness</p>
+           </div>
+           <div class="p-3 bg-blue-50 rounded-lg"><strong class="text-blue-900">Ultrasonic Pulse Velocity</strong>
+            <p class="text-sm text-slate-600 mt-1">IS 13311 Part 1 - Concrete Quality</p>
+           </div>
+           <div class="p-3 bg-purple-50 rounded-lg"><strong class="text-purple-900">Half Cell Potential Test</strong>
+            <p class="text-sm text-slate-600 mt-1">ASTM C876 - Corrosion Detection</p>
+           </div>
+           <div class="p-3 bg-purple-50 rounded-lg"><strong class="text-purple-900">Carbonation Depth Test</strong>
+            <p class="text-sm text-slate-600 mt-1">Concrete Durability Assessment</p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 p-6 bg-indigo-600 text-white rounded-2xl">
+         <h4 class="font-semibold text-lg mb-4">Structures Covered</h4>
+         <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div>
+           🏢 Buildings &amp; High-rises
+          </div>
+          <div>
+           🌉 Bridges &amp; Flyovers
+          </div>
+          <div>
+           🏭 Industrial Structures
+          </div>
+          <div>
+           🛣️ Highway Structures
+          </div>
+          <div>
+           🏗️ Retaining Walls
+          </div>
+          <div>
+           🏛️ Heritage Buildings
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Safety Audit -->
+      <div id="service-safety" class="service-detail-section hidden">
+       <div class="bg-gradient-to-br from-orange-50 to-white rounded-3xl p-8 md:p-12 border border-orange-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Road Safety Audit</h2>
+          <p class="text-slate-600 mt-1">IRC SP 88 compliant road safety assessment</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Audit Stages</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Stage 1:</strong> Feasibility Stage Audit</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Stage 2:</strong> Preliminary Design Audit</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Stage 3:</strong> Detailed Design Audit</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Stage 4:</strong> Pre-Opening Audit</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Stage 5:</strong> Existing Road Audit</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Assessment Parameters</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200">
+           <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Geometric Design Compliance (IRC 73)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Sight Distance &amp; Visibility</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Road Signage &amp; Markings (IRC 35, IRC 67)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Road Furniture &amp; Barriers (IRC 99)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Junction &amp; Intersection Safety</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Pedestrian &amp; Vulnerable Road Users</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Lighting &amp; Drainage Adequacy</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Black Spot Identification</li>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+         <div class="p-6 bg-orange-600 text-white rounded-2xl">
+          <h4 class="font-semibold text-lg mb-3">Standards &amp; Guidelines</h4>
+          <div class="space-y-2 text-sm">
+           <div>
+            📋 IRC SP 88 - Road Safety Audit
+           </div>
+           <div>
+            📋 IRC 35 - Traffic Signs
+           </div>
+           <div>
+            📋 IRC 67 - Road Markings
+           </div>
+           <div>
+            📋 IRC 99 - Road Safety Barriers
+           </div>
+           <div>
+            📋 IRC 73 - Geometric Design
+           </div>
+          </div>
+         </div>
+         <div class="p-6 bg-white border border-slate-200 rounded-2xl">
+          <h4 class="font-semibold text-lg mb-3 text-slate-900">Deliverables</h4>
+          <div class="space-y-2 text-sm text-slate-700">
+           <div>
+            ✓ Detailed Audit Report
+           </div>
+           <div>
+            ✓ Problem Identification Matrix
+           </div>
+           <div>
+            ✓ Remedial Measures
+           </div>
+           <div>
+            ✓ Priority Recommendations
+           </div>
+           <div>
+            ✓ Site Photographs &amp; Maps
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Environmental Audit -->
+      <div id="service-environmental" class="service-detail-section hidden">
+       <div class="bg-gradient-to-br from-teal-50 to-white rounded-3xl p-8 md:p-12 border border-teal-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-teal-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h3.064M15 20.488V18a2 2 0 012-2h3.064" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Environmental Audit &amp; Monitoring</h2>
+          <p class="text-slate-600 mt-1">ISO 14001 compliant environmental assessment</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Audit Services</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-teal-600 rounded-full mt-2"></span> <span class="text-slate-700">Environmental Impact Assessment (EIA)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-teal-600 rounded-full mt-2"></span> <span class="text-slate-700">Environmental Management Plan (EMP)</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-teal-600 rounded-full mt-2"></span> <span class="text-slate-700">Compliance Monitoring &amp; Reporting</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-teal-600 rounded-full mt-2"></span> <span class="text-slate-700">Baseline Environmental Data Collection</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-teal-600 rounded-full mt-2"></span> <span class="text-slate-700">Green Cover Assessment</span></li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Monitoring Parameters</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200 space-y-4">
+           <div class="p-3 bg-teal-50 rounded-lg"><strong class="text-teal-900">Air Quality Monitoring</strong>
+            <p class="text-sm text-slate-600 mt-1">PM10, PM2.5, SO2, NOx, CO (CPCB Standards)</p>
+           </div>
+           <div class="p-3 bg-blue-50 rounded-lg"><strong class="text-blue-900">Water Quality Monitoring</strong>
+            <p class="text-sm text-slate-600 mt-1">pH, BOD, COD, TSS, Heavy Metals (IS 3025)</p>
+           </div>
+           <div class="p-3 bg-purple-50 rounded-lg"><strong class="text-purple-900">Noise Level Monitoring</strong>
+            <p class="text-sm text-slate-600 mt-1">Ambient Noise (CPCB Standards)</p>
+           </div>
+           <div class="p-3 bg-emerald-50 rounded-lg"><strong class="text-emerald-900">Soil Quality Assessment</strong>
+            <p class="text-sm text-slate-600 mt-1">Chemical &amp; Physical Properties</p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 grid md:grid-cols-3 gap-4">
+         <div class="p-6 bg-teal-600 text-white rounded-2xl">
+          <div class="text-2xl font-bold mb-2">
+           ISO 14001
+          </div>
+          <div class="text-sm">
+           Environmental Management
+          </div>
+         </div>
+         <div class="p-6 bg-teal-600 text-white rounded-2xl">
+          <div class="text-2xl font-bold mb-2">
+           CPCB
+          </div>
+          <div class="text-sm">
+           Compliance Standards
+          </div>
+         </div>
+         <div class="p-6 bg-teal-600 text-white rounded-2xl">
+          <div class="text-2xl font-bold mb-2">
+           MoEFCC
+          </div>
+          <div class="text-sm">
+           Guidelines Adherence
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Roughness Survey -->
+      <div id="service-roughness" class="service-detail-section hidden">
+<div class="mt-6 mb-10">
+  <img 
+    src="assets/images/services/Roughness Survey.jpg"
+    alt="Roughness Survey Services"
+    class="w-full h-[320px] object-cover rounded-2xl shadow-md"
+    loading="lazy"
+  />
+</div>
+       <div class="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-8 md:p-12 border border-pink-100">
+        <div class="flex items-center gap-4 mb-6">
+         <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+         </div>
+         <div>
+          <h2 class="font-display text-3xl font-bold text-slate-900">Roughness Survey &amp; Pavement Evaluation</h2>
+          <p class="text-slate-600 mt-1">IRI measurement and road condition assessment</p>
+         </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Survey Methods</h3>
+          <ul class="space-y-3">
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-pink-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Bump Integrator Method:</strong> IRC 115 compliant mechanical measurement</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-pink-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Merlin Device:</strong> Manual roughness indicator for small sections</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-pink-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Laser Profilometer:</strong> High-speed automated IRI measurement</span></li>
+           <li class="flex items-start gap-3"><span class="w-2 h-2 bg-pink-600 rounded-full mt-2"></span> <span class="text-slate-700"><strong>Dipstick Profilometer:</strong> Precise longitudinal profile measurement</span></li>
+          </ul>
+          <div class="mt-6 p-4 bg-pink-50 rounded-xl">
+           <h4 class="font-semibold text-slate-900 mb-3">IRI Classification (IRC 115)</h4>
+           <div class="space-y-2 text-sm">
+            <div class="flex justify-between"><span>Good:</span> <strong>IRI &lt; 2.0 m/km</strong>
+            </div>
+            <div class="flex justify-between"><span>Fair:</span> <strong>IRI 2.0-3.5 m/km</strong>
+            </div>
+            <div class="flex justify-between"><span>Poor:</span> <strong>IRI 3.5-5.5 m/km</strong>
+            </div>
+            <div class="flex justify-between"><span>Very Poor:</span> <strong>IRI &gt; 5.5 m/km</strong>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-4">Additional Assessments</h3>
+          <div class="bg-white rounded-xl p-6 border border-slate-200 space-y-4">
+           <div class="p-3 bg-blue-50 rounded-lg"><strong class="text-blue-900">Visual Condition Survey</strong>
+            <ul class="text-sm text-slate-600 mt-2 space-y-1">
+             <li>• Crack Mapping &amp; Severity</li>
+             <li>• Rutting Depth Measurement</li>
+             <li>• Pothole Identification</li>
+             <li>• Edge Break Assessment</li>
+            </ul>
+           </div>
+           <div class="p-3 bg-emerald-50 rounded-lg"><strong class="text-emerald-900">Structural Evaluation</strong>
+            <ul class="text-sm text-slate-600 mt-2 space-y-1">
+             <li>• Benkelman Beam Deflection</li>
+             <li>• Falling Weight Deflectometer</li>
+             <li>• Overlay Design Thickness</li>
+             <li>• Remaining Life Estimation</li>
+            </ul>
+           </div>
+          </div>
+          <div class="mt-6 p-4 bg-white border border-slate-200 rounded-xl">
+           <h4 class="font-semibold text-slate-900 mb-3">Deliverables</h4>
+           <div class="space-y-2 text-sm text-slate-700">
+            <div>
+             ✓ IRI Values for Each Section
+            </div>
+            <div>
+             ✓ Pavement Condition Index (PCI)
+            </div>
+            <div>
+             ✓ Roughness Distribution Maps
+            </div>
+            <div>
+             ✓ Maintenance Priority Ranking
+            </div>
+            <div>
+             ✓ Rehabilitation Recommendations
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mt-8 p-6 bg-pink-600 text-white rounded-2xl">
+         <h4 class="font-semibold text-lg mb-4">Standards &amp; Guidelines</h4>
+         <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div>
+           📋 IRC 115 - Pavement Evaluation
+          </div>
+          <div>
+           📋 IRC 82 - Maintenance Priority
+          </div>
+          <div>
+           📋 IRC 81 - Overlay Design
+          </div>
+          <div>
+           📋 ASTM E1926 - IRI Measurement
+          </div>
+          <div>
+           📋 World Bank HDM-4
+          </div>
+          <div>
+           📋 MoRTH Specifications
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Projects Page -->
+   <!-- ================= PROJECTS PAGE ================= -->
+<div id="page-projects" class="page pt-20">
+
+  <section id="projects-list" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="text-center mb-16">
+        <h1 class="font-display text-4xl font-bold text-slate-900 mb-4">Our Projects</h1>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Key infrastructure projects executed with independent quality control and technical excellence.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- PROJECT 1 -->
+        <div onclick="openProject('p1')" 
+             class="cursor-pointer card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden">
+          <img src="assets/projects/updated shortly.jpg" class="w-full h-48 object-cover" alt="updated shortly">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">
+              Will be Updated Shortly...
+            </h3>
+            <p class="text-slate-600 text-sm">
+              .
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="project-details" class="py-20 bg-slate-50 hidden">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <button onclick="backToProjects()" 
+              class="mb-8 text-slate-700 font-medium hover:text-slate-900">
+        ← Back to Projects
+      </button>
+
+      <div id="project-content" 
+           class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openProject(id) {
+
+    document.getElementById('projects-list').classList.add('hidden');
+    document.getElementById('project-details').classList.remove('hidden');
+
+    const data = {
+      p1: `
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-4">
+          Will be Updated Shortly...
+        </h2>
+        <p class="text-slate-600 mb-6">
+          
+        </p>
+        <ul class="space-y-3 text-slate-700">
+         <li>...</li>
+        </ul>
+
+      `
+    };
+
+    document.getElementById('project-content').innerHTML = data[id];
+  }
+
+  function backToProjects() {
+    document.getElementById('project-details').classList.add('hidden');
+    document.getElementById('projects-list').classList.remove('hidden');
+  }
+</script>
+
+<script>
+  function openProjectsPage() {
+    // Open projects page
+    showPage('projects');
+
+    // Always show project list (NOT details)
+    const list = document.getElementById('projects-list');
+    const details = document.getElementById('project-details');
+
+    if (list && details) {
+      list.classList.remove('hidden');
+      details.classList.add('hidden');
+    }
+  }
+</script>
+
+<!-- Testimonials Page -->
+<!-- CERTIFICATES SECTION -->
+<!-- ================= TESTIMONIALS / CERTIFICATIONS PAGE ================= -->
+<div id="page-testimonials" class="page pt-20">
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <h1 class="font-display text-4xl font-bold text-slate-900 mb-4">
+        Certifications & Accreditations
+      </h1>
+      <p class="text-slate-600 max-w-2xl mx-auto">
+        Official certifications validating our compliance with national and international standards.
+      </p>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Certificate Card -->
+      <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+
+      <!-- NABL -->
+      <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+        <a href="assets/certificates/NABL.pdf" target="_blank">
+          <img 
+            src="assets/certificates/NABL.jpg"
+            alt="NABL Accreditation Certificate"
+            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </a>
+
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-slate-900 mb-1">
+            NABL Accreditation
+          </h3>
+          <p class="text-sm text-slate-500 mb-4">
+            ISO/IEC 17025:2017
+          </p>
+
+          <div class="flex gap-3">
+            <a href="assets/certificates/NABL.pdf" target="_blank"
+               class="flex-1 text-center px-4 py-2 bg-slate-800 text-white rounded-lg text-sm hover:bg-slate-700">
+              View PDF
+            </a>
+            <a href="assets/certificates/NABL.pdf" download
+               class="flex-1 text-center px-4 py-2 border border-slate-300 rounded-lg text-sm hover:bg-slate-100">
+              Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   </div><!-- Clients Page -->
+ <!-- ================= CLIENTS PAGE ================= -->
+<div id="page-clients" class="page">
+  <!-- Clients Heading -->
+ <!-- ================= CLIENT INTRO CONTENT ================= -->
+<section class="pt-20 pb-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        Trusted Quality Assurance & Inspection Partner
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed mb-5">
+        At <strong class="text-slate-800">SVAR Quality Consultant</strong>, we take pride in being a trusted quality
+        assurance and inspection partner for government authorities, public sector undertakings,
+        and private contractors across India. Our clients rely on us for independent, transparent,
+        and technically sound quality consultancy services that ensure compliance with statutory
+        standards, project specifications, and best engineering practices.
+      </p>
+
+      <p class="text-slate-600 leading-relaxed mb-5">
+        We primarily work as Project Management Consultants (PMC) and
+        <strong class="text-slate-800">Third-Party Testing & inspection consultants</strong>, supporting infrastructure
+        projects such as highways, roads, bridges, culverts, dams, water infrastructure, soil
+        investigations, and all types of construction materials. Our services extend from planning
+        and execution stages to monitoring, testing, certification, and reporting, ensuring
+        consistent quality at every phase of construction.
+      </p>
+
+      <p class="text-slate-600 leading-relaxed">
+        With a strong understanding of <strong class="text-slate-800">MoRTH, IRC, IS codes</strong> and relevant
+        government specifications, SVAR Quality Consultant has built long-term associations with
+        NHAI, MSRDC, MSIDC, PWD, urban development bodies, industrial clients, and reputed private
+        contractors. Our commitment to accuracy, accountability, and engineering excellence enables
+        our clients to deliver safe, durable, and compliant infrastructure projects with confidence.
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- ================= END CLIENT INTRO CONTENT ================= -->
+
+  <!-- Clients Logos Section -->
+ <section class="pt-20 pb-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+      <!-- CLIENT LOGOS GRID -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 items-center">
+
+        <img src="assets/clients/govt-maharashtra.png" alt="Government of Maharashtra"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/jal-jeevan-mission.png" alt="Har Ghar Jal - Jal Jeevan Mission"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/mjp.png" alt="Maharashtra Jeevan Pradhikaran"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/msidc.png" alt="MSIDC"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/nhai.png" alt="National Highways Authority of India"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/msrdc.png" alt="Maharashtra State Road Development Corporation"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/pwd-maharashtra.png" alt="PWD Maharashtra"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/mridc.png" alt="MRIDC"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/vpm.png" alt="Vidarbha Paatbandhare Mahamandal"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/mruda-jalsandharan.png" alt="Mruda and Jalsandharan Vibhag"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/hpcl.png" alt="HP Petroleum"
+          class="mx-auto h-16 object-contain transition">
+
+        <img src="assets/clients/iocl.png" alt="Indian Oil Corporation Limited"
+          class="mx-auto h-16 object-contain transition">
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- ================= END CLIENTS PAGE ================= -->
+
+      <div class="mb-16">
+       <h2 class="font-display text-3xl font-bold text-slate-900 mb-12 text-center">Share Your Feedback</h2>
+       <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-lg">
+        <p class="text-slate-600 text-center mb-8">We value your feedback! Please share your experience working with us.</p>
+       <form 
+  action="https://formsubmit.co/svarqcllpinfo@gmail.com" 
+  method="POST"
+  class="max-w-3xl mx-auto mt-12 space-y-6 bg-slate-50 p-8 rounded-2xl border">
+
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New Feedback - SVAR Quality Consultant">
+
+  <div>
+    <label>Name</label>
+    <input type="text" name="name" required class="w-full px-4 py-3 border rounded-lg">
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" name="email" class="w-full px-4 py-3 border rounded-lg">
+  </div>
+
+  <div>
+    <label>Feedback</label>
+    <textarea name="feedback" required rows="4"
+      class="w-full px-4 py-3 border rounded-lg"></textarea>
+  </div>
+
+  <button type="submit"
+    class="bg-emerald-600 text-white px-6 py-3 rounded-lg">
+    Submit Feedback
+  </button>
+</form>
+
+       </div>
+      </div>
+      <div class="text-center bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl p-12 text-white">
+       <h3 class="font-display text-2xl font-bold mb-4 !text-white">Industries We Serve</h3>
+       <div class="flex flex-wrap justify-center gap-4 mt-8"><span class="px-4 py-2 bg-white/10 rounded-full text-sm">Construction</span> <span class="px-4 py-2 bg-white/10 rounded-full text-sm">Infrastructure</span> <span class="px-4 py-2 bg-white/10 rounded-full text-sm">Environment</span> <span class="px-4 py-2 bg-white/10 rounded-full text-sm">Civil Engineering</span>
+       </div>
+      </div>
+     </div>
+    </section>
+   <!-- Contact Page -->
+  <div id="page-contact" class="page pt-20">
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="font-display text-4xl font-bold text-slate-900 mb-6">
+        Contact Us
+      </h1>
+
+      <p class="text-slate-600 mb-10">
+        Get in touch with SVAR Quality Consultant for testing, inspection, and consultancy services.
+      </p>
+
+      <!-- CONTACT FORM START -->
+      <form 
+        action="https://formsubmit.co/svarqcllpinfo@gmail.com" 
+        method="POST"
+        class="space-y-6 bg-slate-50 p-8 rounded-2xl border">
+
+        <!-- hidden config -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Contact Inquiry - SVAR Quality Consultant">
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Full Name</label>
+          <input type="text" name="name" required
+            class="mt-1 w-full px-4 py-3 border rounded-lg">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Email</label>
+          <input type="email" name="email" required
+            class="mt-1 w-full px-4 py-3 border rounded-lg">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Mobile Number</label>
+          <input type="text" name="phone"
+            class="mt-1 w-full px-4 py-3 border rounded-lg">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Message</label>
+          <textarea name="message" rows="4" required
+            class="mt-1 w-full px-4 py-3 border rounded-lg"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-slate-800 text-white py-3 rounded-lg hover:bg-slate-700">
+          Send Inquiry
+        </button>
+
+      </form>
+      <!-- CONTACT FORM END -->
+
+    </div>
+  </section>
+</div>
+       <div class="space-y-8">
+        <div class="bg-slate-50 rounded-2xl p-8">
+         <h3 class="font-display text-xl font-bold text-slate-900 mb-6">Contact Information</h3>
+         <div class="space-y-6">
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+           </div>
+           <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Office Address</h4>
+            <p id="contact-address" class="text-slate-600">House No 54, Mangalmurti Layout, Mahesh Nagar, Sai Nagar<br>
+             Amravati, 444605</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+           </div>
+           <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Email</h4>
+            <p id="contact-email" class="text-slate-600">svarqcllpinfo@gmail.com</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+           </div>
+           <div>
+            <h4 class="font-semibold text-slate-900 mb-1">Phone</h4>
+            <p id="contact-phone" class="text-slate-600">+91 9284545721</p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-8">
+         <h3 class="font-display text-xl font-bold text-slate-900 mb-6">Business Hours</h3>
+         <div class="space-y-3">
+          <div class="flex justify-between"><span class="text-slate-600">Monday - Saturday</span> <span class="font-medium text-slate-900">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="flex justify-between"><span class="text-slate-600">Sunday</span> <span class="font-medium text-slate-900">Closed</span>
+          </div>
+         </div>
+        </div>
+        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 text-white">
+         <h3 class="font-display text-xl font-bold mb-4 !text-white">Quick Response</h3>
+         <p class="text-slate-300 mb-4">We typically respond to all inquiries within 24 business hours.</p>
+         <div class="flex items-center gap-2 text-emerald-400 mb-6"><span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> <span class="text-sm font-medium">Available for consultation</span>
+         </div>
+         <div class="border-t border-slate-600 pt-6">
+          <h4 class="font-semibold mb-4 !text-white">Connect With Us</h4>
+          <div class="flex gap-3"><a href="https://www.instagram.com/svar_qc?igsh=YXB4cWpqNGZpd2p0" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all" aria-label="Follow us on Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg></a> <a href="https://x.com/SVARQCMTLLP?t=0U9jquDF5aFGfUxWZ7Uv4g&amp;s=08" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all" aria-label="Follow us on X (Twitter)">
+            <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a> <a href="https://www.linkedin.com/in/svar-qc-mt-llp-7247883a5" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all" aria-label="Follow us on LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg></a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Footer -->
+   <!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-300">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <!-- COMPANY SECTION -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/logo.png" alt="SVAR Logo" class="h-10 w-auto">
+          <span class="font-display text-lg font-semibold text-white">
+            SVAR Quality Consultant
+          </span>
+        </div>
+
+        <p class="text-sm leading-relaxed text-slate-400">
+          Independent third-party quality assurance & testing consultants for
+          highways, roads, structures and infrastructure projects across India.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><button onclick="showPage('home')" class="hover:text-white">Home</button></li>
+          <li><button onclick="showPage('profile')" class="hover:text-white">Profile</button></li>
+          <li><button onclick="showPage('services')" class="hover:text-white">Services</button></li>
+          <li><button onclick="showPage('projects')" class="hover:text-white">Projects</button></li>
+          <li><button onclick="showPage('testimonials')" class="hover:text-white">Testimonials</button></li>
+          <li><button onclick="showPage('clients')" class="hover:text-white">Clients</button></li>
+          <li><button onclick="showPage('contact')" class="hover:text-white">Contact Us</button></li>
+        </ul>
+      </div>
+
+      <!-- SERVICES -->
+<div>
+  <h3 class="text-white font-semibold mb-4">Our Services</h3>
+  <ul class="space-y-2 text-sm">
+
+    <li>
+      <button onclick="openServiceFromFooter('pmc')" class="hover:text-white">
+        PMC Services
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('nabl')" class="hover:text-white">
+        NABL Testing Lab
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('construction')" class="hover:text-white">
+        Construction Testing
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('soil')" class="hover:text-white">
+        Soil Investigation
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('design')" class="hover:text-white">
+        Design & Estimation
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('highway')" class="hover:text-white">
+        Highway Testing
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('structural')" class="hover:text-white">
+        Structural Audit
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('safety')" class="hover:text-white">
+        Road Safety Audit
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('environmental')" class="hover:text-white">
+        Environmental Audit
+      </button>
+    </li>
+
+    <li>
+      <button onclick="openServiceFromFooter('roughness')" class="hover:text-white">
+        Roughness Survey
+      </button>
+    </li>
+
+  </ul>
+</div>
+<script>
+  // Make function GLOBAL
+  window.openServiceFromFooter = function (serviceId) {
+
+    // Step 1: Open Services page
+    showPage('services');
+
+    // Step 2: Wait until page becomes active
+    setTimeout(() => {
+
+      // Hide all service sections
+      document.querySelectorAll('.service-detail-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Show selected service
+      const activeService = document.getElementById('service-' + serviceId);
+      if (activeService) {
+        activeService.classList.remove('hidden');
+
+        // Scroll to service section
+        activeService.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+
+      // Update active button style
+      document.querySelectorAll('.service-nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const activeBtn = document.querySelector(
+        `.service-nav-btn[onclick="showServiceDetail('${serviceId}')"]`
+      );
+      if (activeBtn) activeBtn.classList.add('active');
+
+    }, 350); // must be > page animation time
+  };
+</script>
+
+
+      <!-- CONTACT -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Contact Us</h3>
+
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li>
+            📍 Amravati, Maharashtra, India
+          </li>
+          <li>
+            📞 <a href="tel:+91 9284545721" class="hover:text-white">+91 9284545721</a>
+          </li>
+          <li>
+            ✉️ <a href="mailto:svarqcllpinfo@gmail.com" class="hover:text-white">
+              svarqcllpinfo@gmail.com
+            </a>
+          </li>
+        </ul>
+
+        <button
+          onclick="showPage('contact')"
+          class="mt-4 inline-block px-5 py-2 bg-white text-slate-900 rounded-lg text-sm font-medium hover:bg-slate-200 transition">
+          Send Enquiry
+        </button>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="mt-12 border-t border-slate-700 pt-6 text-center text-sm text-slate-500">
+      © <span id="year"></span> SVAR Quality Consultant MT. LLP. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+   </div>
+  <script>
+    const defaultConfig = {
+      company_name: 'SVAR Quality Consultant MT. LLP',
+      tagline: 'Independent Quality and Testing Consultants for Highways & Infrastructures',
+      about_text: 'SVAR Quality Consultant MT. LLP, established in 2020, is a professional quality consulting and third-party testing firm headquartered in Amravati, Maharashtra, providing services across India.',
+      email: 'svarqcllpinfo@gmail.com',
+      phone: '92845 45721 | 70309 65781',
+      address: 'Amravati, Maharashtra, India - Serving Projects Across Pan-India',
+      background_color: '#f8fafc',
+      surface_color: '#ffffff',
+      text_color: '#1e293b',
+      primary_action_color: '#1e293b',
+      secondary_action_color: '#475569'
+    };
+
+    let config = { ...defaultConfig };
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById('page-' + pageId).classList.add('active');
+      
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.page === pageId) {
+          link.classList.add('active');
+        }
+      });
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function showServiceDetail(serviceId) {
+      document.querySelectorAll('.service-detail-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById('service-' + serviceId).classList.remove('hidden');
+      
+      document.querySelectorAll('.service-nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      window.scrollTo({ top: document.getElementById('service-' + serviceId).offsetTop - 100, behavior: 'smooth' });
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formMessage = document.getElementById('form-message');
+      formMessage.className = 'p-4 rounded-xl text-center bg-emerald-100 text-emerald-800';
+      formMessage.textContent = 'Thank you for your message! We will get back to you within 24 hours.';
+      formMessage.classList.remove('hidden');
+      this.reset();
+      
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
+    });
+
+    // Feedback form rating functionality
+    let selectedRating = 0;
+
+    function setRating(rating) {
+      selectedRating = rating;
+      document.getElementById('rating-value').value = rating;
+      document.getElementById('rating-error').classList.add('hidden');
+      
+      // Update star buttons appearance
+      const starButtons = document.querySelectorAll('.star-btn');
+      starButtons.forEach((btn, index) => {
+        const star = btn.querySelector('svg');
+        if (index < rating) {
+          btn.classList.add('bg-amber-50', 'border-amber-400');
+          btn.classList.remove('border-slate-300');
+          star.classList.add('text-amber-400');
+          star.classList.remove('text-slate-300');
+        } else {
+          btn.classList.remove('bg-amber-50', 'border-amber-400');
+          btn.classList.add('border-slate-300');
+          star.classList.remove('text-amber-400');
+          star.classList.add('text-slate-300');
+        }
+      });
+    }
+
+    document.getElementById('feedback-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Check if rating is selected
+      if (selectedRating === 0) {
+        document.getElementById('rating-error').classList.remove('hidden');
+        return;
+      }
+      
+      // Get form data
+      const formData = {
+        name: document.getElementById('feedback-name').value,
+        company: document.getElementById('feedback-company').value,
+        designation: document.getElementById('feedback-designation').value,
+        email: document.getElementById('feedback-email').value,
+        contact: document.getElementById('feedback-contact').value,
+        rating: selectedRating,
+        feedback: document.getElementById('feedback-message').value
+      };
+      
+      console.log('Feedback submitted:', formData);
+      
+      const feedbackMessageBox = document.getElementById('feedback-message-box');
+      feedbackMessageBox.className = 'p-4 rounded-xl text-center bg-emerald-100 text-emerald-800';
+      feedbackMessageBox.innerHTML = '✓ Thank you for your valuable feedback! We appreciate you taking the time to share your experience with us.';
+      feedbackMessageBox.classList.remove('hidden');
+      
+      // Reset form
+      this.reset();
+      selectedRating = 0;
+      
+      // Reset star buttons
+      const starButtons = document.querySelectorAll('.star-btn');
+      starButtons.forEach(btn => {
+        const star = btn.querySelector('svg');
+        btn.classList.remove('bg-amber-50', 'border-amber-400');
+        btn.classList.add('border-slate-300');
+        star.classList.remove('text-amber-400');
+        star.classList.add('text-slate-300');
+      });
+      
+      setTimeout(() => {
+        feedbackMessageBox.classList.add('hidden');
+      }, 5000);
+    });
+
+    async function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
+      
+      document.getElementById('nav-company-name').textContent = config.company_name.split(' ')[0] + ' Quality';
+      document.getElementById('hero-company-name').textContent = config.company_name;
+      document.getElementById('footer-company-name').textContent = config.company_name;
+      
+      document.getElementById('hero-tagline').textContent = config.tagline;
+      
+      document.getElementById('profile-about').textContent = config.about_text;
+      
+      document.getElementById('contact-email').textContent = config.email;
+      document.getElementById('contact-phone').textContent = config.phone;
+      document.getElementById('contact-address').innerHTML = config.address.replace(/,/g, '<br>');
+      
+      document.body.style.backgroundColor = config.background_color;
+      document.querySelectorAll('.hero-pattern').forEach(el => {
+        el.style.backgroundColor = config.background_color;
+      });
+      
+      document.querySelectorAll('.bg-white').forEach(el => {
+        el.style.backgroundColor = config.surface_color;
+      });
+      
+      document.querySelectorAll('.font-display, h1, h2, h3, h4').forEach(el => {
+        el.style.color = config.text_color;
+      });
+      
+      document.querySelectorAll('.bg-slate-800').forEach(el => {
+        if (!el.closest('footer') && !el.closest('.bg-gradient-to-br')) {
+          el.style.backgroundColor = config.primary_action_color;
+        }
+      });
+    }
+
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (value) => {
+              cfg.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              cfg.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              cfg.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => cfg.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              cfg.primary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => cfg.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              cfg.secondary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ['company_name', cfg.company_name || defaultConfig.company_name],
+        ['tagline', cfg.tagline || defaultConfig.tagline],
+        ['about_text', cfg.about_text || defaultConfig.about_text],
+        ['email', cfg.email || defaultConfig.email],
+        ['phone', cfg.phone || defaultConfig.phone],
+        ['address', cfg.address || defaultConfig.address]
+      ]);
+    }
+
+    function filterProjects(category) {
+      const projectCards = document.querySelectorAll('.project-card');
+      const filterButtons = document.querySelectorAll('.project-filter-btn');
+      
+      // Update button styles
+      filterButtons.forEach(btn => {
+        if (btn.dataset.category === category) {
+          btn.classList.add('active', 'bg-slate-800', 'text-white');
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+        } else {
+          btn.classList.remove('active', 'bg-slate-800', 'text-white');
+          btn.classList.add('bg-slate-100', 'text-slate-700');
+        }
+      });
+      
+      // Filter projects
+      projectCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bdcc65dd2a3ca42',t:'MTc2ODM4OTk0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
